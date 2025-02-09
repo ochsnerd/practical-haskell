@@ -2,6 +2,7 @@
 
 module Chapter3 where
 
+import Client
 import Data.List (find, foldl')
 import Data.Maybe (isJust)
 
@@ -34,20 +35,6 @@ filterANumber n = filter (== n)
 
 filterNot :: (a -> Bool) -> [a] -> [a]
 filterNot p = filter (not . p)
-
-data Client id
-  = GovOrg {clientId :: id, clientName :: String}
-  | Company
-      { clientId :: id,
-        clientName :: String,
-        person :: Person,
-        duty :: String
-      }
-  | Individual {clientId :: id, person :: Person}
-  deriving (Show, Eq, Ord)
-
-data Person = Person {firstName :: String, lastName :: String}
-  deriving (Show, Eq, Ord)
 
 filterGovOrgs1 :: [Client a] -> [Client a]
 filterGovOrgs1 = filter isGovOrg

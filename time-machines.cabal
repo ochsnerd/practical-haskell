@@ -32,12 +32,19 @@ common common-options
 
 library
   import:          common-options
-  hs-source-dirs:  src, exercises
+  hs-source-dirs:  src
   exposed-modules: Lib
-  other-modules: Chapter3
   build-depends:
     , containers
     , mtl
+
+-- compile exercises as library because we don't need an exe, but want lsp to work
+library exercises
+  import:          common-options
+  hs-source-dirs:  exercises
+  exposed-modules: Chapter3, Chapter4, Client
+  build-depends:
+    , containers
 
 executable time-machines-exe
   import:         common-options
