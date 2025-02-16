@@ -42,7 +42,7 @@ library
 library exercises
   import:          common-options
   hs-source-dirs:  exercises
-  exposed-modules: Chapter3, Chapter4, Client
+  exposed-modules: Chapter3, Chapter4, Chapter5, Client
   build-depends:
     , containers
 
